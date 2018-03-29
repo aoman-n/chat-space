@@ -18,7 +18,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false, unique: true|
+|name|string|null: false, unique: true|
 
 ### Association
 - has_many :users, through: :members
@@ -30,7 +30,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
-|email|string|null: false, unique: true|
 
 ### Association
 - has_many :groups, through: :members
