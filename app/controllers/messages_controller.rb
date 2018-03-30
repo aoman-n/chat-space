@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  def indexAll Autocomplete
+  def index
 
   end
 end
