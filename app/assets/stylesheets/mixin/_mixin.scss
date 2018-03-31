@@ -1,0 +1,14 @@
+.clearfix {
+  &:after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin hover() {
+  &:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+}
