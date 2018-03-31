@@ -1,0 +1,99 @@
+.main-content {
+  float: right;
+  width: calc(100% - 300px);
+  height: 100vh;
+  position: relative;
+  .view-screen {
+    .chat-head {
+      height: 96px;
+      padding: 0 40px;
+      border-bottom: solid 1px #eeeeee;
+      .left-contents {
+        float: left;
+        &__title {
+          font-size: 20px;
+          color: #333333;
+          padding-top: 35px;
+        }
+        &__member {
+          font-size: 12px;
+          color: #999999;
+          padding-top: 15px;
+        }
+      }
+      &__edit {
+        float: right;
+        display: inline-block;
+        padding: 0 20px;
+        text-decoration: none;
+        line-height: 40px;
+        color: $edit-color;
+        border: solid 1px;
+        margin: 28px 0;
+        @include hover();
+      }
+    }
+    .chat-main{
+      background-color: #AAAAAA;
+      padding: 0 40px;
+      height: calc(100vh - 96px);
+      .comment {
+        padding-top: 46px;
+        color: #434A54;
+        &__user-name {
+          float: left;
+          font-size: 16px;
+          font-style: bold;
+          padding-right: 10px;
+        }
+        &__date li {
+          float: left;
+          font-size: 12px;
+          color: #999999;
+        }
+        &__text {
+          padding-top: 10px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .footer {
+    height: 90px;
+    background-color: gray;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    .footer-body {
+      padding: 20px 40px;
+      position: relative;
+      .message {
+        font-size: 16px;
+        height: 50px;
+        padding: 0 10px;
+        border-style: none;
+        width: calc(100% - 140px);
+      }
+      .message-label {
+        @include hover();
+        .fa {
+          position: absolute;
+          top: 38px;
+          right: 170px;
+        }
+        .upload-icon {
+          display: none;
+        }
+      }
+    }
+    .sent-bottun {
+      border-style: none;
+      height: 50px;
+      background-color: $edit-color;
+      padding: 0 25px;
+      color: #FFFFFF;
+      margin-left: 15px;
+      @include hover ();
+    }
+  }
+}
