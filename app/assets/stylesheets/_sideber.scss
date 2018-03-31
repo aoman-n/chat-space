@@ -1,13 +1,9 @@
-@import "./variable";
-@import "./mixin/mixin";
-
 .sideber {
   color: $sideber-font-color;
   float: left;
   background-color: #2f3e51;
   height: 100vh;
   width: 300px;
-
   .user-section {
     background-color: #253141;
     font-size: 16px;
@@ -15,32 +11,27 @@
     padding: 0 20px;
     line-height: 96px;
     height: 96px;
-
-      &__name {
-        float: left;
-      }
-
-      &__setting ,&__editing {
-        float: right;
-        padding-left: 10px;
-        color: white;
-        @include hover();
-      }
-
+    &__name {
+      float: left;
+    }
+    &__setting ,&__editing {
+      float: right;
+      padding-left: 10px;
+      color: white;
+      @include hover();
+    }
   }
-
   .group {
     padding: 0 20px;
-      &-contents{
-        &__title {
-          font-size: 15px;
-          padding-top: 20px;
-        }
-        &__comment {
-          font-size: 11px;
-          padding: 5px 0 ;
-        }
+    &-contents{
+      &__title {
+        font-size: 15px;
+        padding-top: 20px;
       }
-
+      &__comment {
+        font-size: 11px;
+        padding: 5px 0 ;
+      }
+    }
   }
 }
