@@ -1,8 +1,8 @@
-@import"./reset";
 @import"font-awesome";
-@import"./mixin/mixin";
-@import"./variable";
-@import"./sideber";
-@import"./main-content";
-
+@import"config/reset";
+@import"mixin/mixin";
+@import"config/variable";
+@import"modules/sideber";
+@import"modules/main-content";
+@import"modules/user";
 
