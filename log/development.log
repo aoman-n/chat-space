@@ -4461,3 +4461,165 @@ Migrating to DeviseCreateUsers (20180331083330)
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
   [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
   [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+Started GET "/" for 127.0.0.1 at 2018-04-01 11:07:58 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (8.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by MessagesController#index as HTML
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `authenticate_member!' for #<MessagesController:0x007fee623584e8>
+Did you mean?  authenticate_user!):
+  
+activesupport (5.0.6) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.6) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.6) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.6) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.6) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.6) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.6) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.6) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.6) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.6) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.6) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.6) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.6) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.6) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.6) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.6) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.6) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.6) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.6) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.6) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.6) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.6) lib/action_dispatch/routing/route_set.rb:727:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.6) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.6) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.6) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.6) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (178.5ms)
+Started GET "/" for 127.0.0.1 at 2018-04-01 11:09:12 +0900
+Processing by MessagesController#index as HTML
+  Rendering messages/index.html.haml within layouts/application
+  Rendered messages/_group.html.haml (4.0ms)
+  Rendered messages/_comment.html.haml (3.4ms)
+  Rendered messages/_comment.html.haml (0.0ms)
+  Rendered messages/index.html.haml within layouts/application (27.8ms)
+Completed 200 OK in 823ms (Views: 818.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-01 11:09:38 +0900
+Processing by MessagesController#index as HTML
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-01 11:09:38 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/shared/_links.html.haml (2.2ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (15.7ms)
+Completed 200 OK in 65ms (Views: 41.6ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-04-01 11:17:22 +0900
+Processing by Devise::RegistrationsController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (unknown keyword: key):
+  
+app/controllers/application_controller.rb:8:in `configure_permitted_parameters'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (105.5ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-04-01 11:19:56 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_links.html.haml (2.2ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (10.7ms)
+Completed 200 OK in 48ms (Views: 36.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-04-01 11:20:06 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_links.html.haml (1.7ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (9.3ms)
+Completed 200 OK in 46ms (Views: 33.3ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-04-01 11:20:09 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_links.html.haml (1.4ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (8.1ms)
+Completed 200 OK in 40ms (Views: 28.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-04-01 11:20:21 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/shared/_links.html.haml (1.4ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (8.2ms)
+Completed 200 OK in 43ms (Views: 28.9ms | ActiveRecord: 4.4ms)
+
+
