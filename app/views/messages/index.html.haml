@@ -3,10 +3,10 @@
     .user-section.clearfix
       %h2.user-section__name
         = current_user.name
-      = link_to "", class:"user-section__editing" do
-        %i.fa.fa-edit
       = link_to "/users/#{current_user.id}/edit", class:"user-section__setting" do
         %i.fa.fa-cog
+      = link_to "", class:"user-section__editing" do
+        %i.fa.fa-edit
     = render partial: "group"
 
   .main-content
