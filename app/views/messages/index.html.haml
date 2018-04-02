@@ -1,0 +1,30 @@
+.content
+  .sideber
+    .user-section.clearfix
+      %h2.user-section__name
+        = current_user.name
+      = link_to "/users/#{current_user.id}/edit", class:"user-section__setting" do
+        %i.fa.fa-cog
+      = link_to new_group_path, class:"user-section__editing" do
+        %i.fa.fa-edit
+    - @groups.each do |group|
+      = render partial: "group", locals: { group: group}
+
+  .main-content
+    .view-screen
+      .chat-head.clearfix
+        .left-contents
+          %h3.left-contents__title サンプル
+          %p.left-contents__member Member :seo
+        %a.chat-head__edit{href:"/groups/1/edit"} Edit
+      .chat-main
+        = render partial: "comment"
+        = render partial: "comment"
+    .footer.clearfix
+      .footer-body
+        %form
+          %input.message{type:"text",placeholder: "type a message"}
+            %label.message-label{for: "upload-icon"}
+              %i.fa.fa-picture-o
+              %input.upload-icon{type:"file",accept:".jpg,.gif,.png,image/gif,image/jpeg,image/png"}
+          %input.sent-bottun{type:"submit",value:"SENT"}

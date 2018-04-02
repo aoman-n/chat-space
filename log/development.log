@@ -6565,3 +6565,17 @@ Processing by GroupsController#index as HTML
 Completed 200 OK in 57ms (Views: 50.7ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-04-02 20:32:50 +0900
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  Rendered groups/_group.html.haml (2.2ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered messages/_comment.html.haml (1.8ms)
+  Rendered messages/_comment.html.haml (0.0ms)
+  Rendered groups/index.html.haml within layouts/application (26.9ms)
+  Rendered layouts/_flash.html.haml (1.4ms)
+Completed 200 OK in 73ms (Views: 45.8ms | ActiveRecord: 8.8ms)
+
+
