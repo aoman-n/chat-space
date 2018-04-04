@@ -7,7 +7,7 @@
         %i.fa.fa-cog
       = link_to new_group_path, class:"user-section__editing" do
         %i.fa.fa-edit
-    - @groups.each do |group|
+    - current_user.groups.each do |group|
       = render partial: "group", locals: { group: group}
 
   .main-content
@@ -16,10 +16,10 @@
         .left-contents
           %h3.left-contents__title サンプル
           %p.left-contents__member Member :seo
-        %a.chat-head__edit{href:"/groups/1/edit"} Edit
+        %a.chat-head__edit{href:""} Edit
       .chat-main
-        = render partial: "comment"
-        = render partial: "comment"
+        = render partial: "messages/comment"
+        = render partial: "messages/comment"
     .footer.clearfix
       .footer-body
         %form
