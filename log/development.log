@@ -6579,3 +6579,672 @@ Processing by GroupsController#index as HTML
 Completed 200 OK in 73ms (Views: 45.8ms | ActiveRecord: 8.8ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-04-04 11:25:38 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  Rendered groups/_group.html.haml (3.2ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered messages/_comment.html.haml (1.8ms)
+  Rendered messages/_comment.html.haml (0.0ms)
+  Rendered groups/index.html.haml within layouts/application (65.1ms)
+  Rendered layouts/_flash.html.haml (4.6ms)
+Completed 200 OK in 432ms (Views: 363.3ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-04 11:25:42 +0900
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  Rendered groups/_group.html.haml (6.1ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered messages/_comment.html.haml (6.1ms)
+  Rendered messages/_comment.html.haml (0.1ms)
+  Rendered groups/index.html.haml within layouts/application (44.6ms)
+  Rendered layouts/_flash.html.haml (1.4ms)
+Completed 200 OK in 89ms (Views: 82.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/groups/new" for 127.0.0.1 at 2018-04-04 11:25:50 +0900
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/new.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered groups/new.html.haml within layouts/application (480.5ms)
+  Rendered layouts/_flash.html.haml (1.5ms)
+Completed 200 OK in 533ms (Views: 505.2ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/groups" for 127.0.0.1 at 2018-04-04 11:29:51 +0900
+Processing by GroupsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LKfdQmJn7CuUEeW8bfyFI6CxWG3Wv2ro5zi2LOSeHzfEnwn938cPVt3ssATxKqpxq9srWejMQtiaHfNhBvCDig==", "group"=>{"name"=>"テストグループ", "user_ids"=>["", "1", "2"]}, "commit"=>"登録する"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1, 2)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `groups` (`name`, `created_at`, `updated_at`) VALUES ('テストグループ', '2018-04-04 02:29:51', '2018-04-04 02:29:51')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `group_users` (`user_id`, `created_at`, `updated_at`) VALUES (1, '2018-04-04 02:29:51', '2018-04-04 02:29:51')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `group_users` (`user_id`, `created_at`, `updated_at`) VALUES (2, '2018-04-04 02:29:51', '2018-04-04 02:29:51')[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `group_users` SET `group_id` = 4 WHERE `group_users`.`id` = 6[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `group_users` SET `group_id` = 4 WHERE `group_users`.`id` = 7[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 58383ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-04 11:30:49 +0900
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  Rendered groups/_group.html.haml (2.3ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered messages/_comment.html.haml (2.8ms)
+  Rendered messages/_comment.html.haml (0.1ms)
+  Rendered groups/index.html.haml within layouts/application (24.5ms)
+  Rendered layouts/_flash.html.haml (1.7ms)
+Completed 200 OK in 62ms (Views: 55.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-04 11:33:22 +0900
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  Rendered groups/_group.html.haml (2.0ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered groups/_group.html.haml (0.0ms)
+  Rendered messages/_comment.html.haml (2.4ms)
+  Rendered messages/_comment.html.haml (0.0ms)
+  Rendered groups/index.html.haml within layouts/application (19.8ms)
+  Rendered layouts/_flash.html.haml (1.5ms)
+Completed 200 OK in 53ms (Views: 48.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:39:35 +0900
+  
+SyntaxError (/Users/hiroaki/projects/chat-space/app/controllers/groups_controller.rb:40: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/groups_controller.rb:40: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (93.6ms)
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:40:10 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  Rendered groups/edit.html.haml within layouts/application (9.6ms)
+  Rendered layouts/_flash.html.haml (2.1ms)
+Completed 200 OK in 53ms (Views: 34.3ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:44:23 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  Rendered groups/edit.html.haml within layouts/application (8.0ms)
+  Rendered layouts/_flash.html.haml (1.3ms)
+Completed 200 OK in 67ms (Views: 30.3ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/groups/1" for 127.0.0.1 at 2018-04-04 11:44:36 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/groups/1"):
+  
+actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered collection of /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb [25 times] (15.5ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.2ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (136.3ms)
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:47:22 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  Rendered groups/edit.html.haml within layouts/application (5.3ms)
+  Rendered layouts/_flash.html.haml (1.2ms)
+Completed 200 OK in 30ms (Views: 25.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:47:41 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  Rendered groups/edit.html.haml within layouts/application (5.9ms)
+  Rendered layouts/_flash.html.haml (1.7ms)
+Completed 200 OK in 32ms (Views: 28.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:50:53 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  Rendered groups/edit.html.haml within layouts/application (261.8ms)
+Completed 500 Internal Server Error in 271ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007f98c5bd8548>:0x007f98c571dee0>):
+    30:       .chat-group-form__field--left
+    31:       .chat-group-form__field--right
+    32:         / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
+    33:         = f.collection_check_boxes :user_ids, User.all, :id, :name
+    34:         %input.chat-group-form__action-btn{"data-disable-with" => "Save", name: "commit", type: "submit", value: "Save"}/
+  
+app/views/groups/edit.html.haml:33:in `_app_views_groups_edit_html_haml__2245611268545220470_70147062166620'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.5ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (91.7ms)
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:51:01 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  Rendered groups/edit.html.haml within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/Users/hiroaki/projects/chat-space/app/views/groups/edit.html.haml:35: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/groups/edit.html.haml:35: syntax error, unexpected keyword_ensure, expecting end-of-input
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (80.3ms)
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:51:08 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  Rendered groups/edit.html.haml within layouts/application (280.6ms)
+Completed 500 Internal Server Error in 291ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007f98c5bd8548>:0x007f98d0190f58>):
+    30:       .chat-group-form__field--left
+    31:       .chat-group-form__field--right
+    32:         / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
+    33:         = f.collection_check_boxes :user_ids, User.all, :id, :name
+    34:         %input.chat-group-form__action-btn{"data-disable-with" => "Save", name: "commit", type: "submit", value: "Save"}/
+  
+app/views/groups/edit.html.haml:33:in `_app_views_groups_edit_html_haml__2245611268545220470_70147151532080'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (99.7ms)
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:51:36 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  Rendered groups/edit.html.haml within layouts/application (7.2ms)
+  Rendered layouts/_flash.html.haml (1.4ms)
+Completed 200 OK in 37ms (Views: 32.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:53:08 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  Rendered groups/edit.html.haml within layouts/application (344.6ms)
+Completed 500 Internal Server Error in 353ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007f98c5bd8548>:0x007f98ced653a8>):
+    28:         %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
+    29:       .chat-group-form__field--right
+    30:         / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
+    31:         = f.collection_check_boxes :user_ids, User.all, :id, :name
+    32:         %input.chat-group-form__action-btn{"data-disable-with" => "Save", name: "commit", type: "submit", value: "Save"}/
+  
+app/views/groups/edit.html.haml:31:in `_app_views_groups_edit_html_haml__2245611268545220470_70147140955980'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.8ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (85.6ms)
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:53:44 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  Rendered groups/edit.html.haml within layouts/application (235.7ms)
+Completed 500 Internal Server Error in 245ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007f98c5bd8548>:0x007f98cfd55880>):
+    28:         %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
+    29:       .chat-group-form__field--right
+    30:         / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
+    31:         = f.collection_check_boxes :user_ids, User.all, :id, :name
+    32:         %input.chat-group-form__action-btn{"data-disable-with" => "Save", name: "commit", type: "submit", value: "Save"}/
+  
+app/views/groups/edit.html.haml:31:in `_app_views_groups_edit_html_haml__2245611268545220470_70147149312440'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (87.1ms)
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:54:39 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  Rendered groups/edit.html.haml within layouts/application (308.7ms)
+Completed 500 Internal Server Error in 319ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `group' for #<#<Class:0x007f98c5bd8548>:0x007f98cd92c8f0>
+Did you mean?  @group):
+    1: = form_for group do |f|
+    2:   - if group.errors.any?
+    3:     .chat-group-form__errors
+    4:       %h2= "#{group.errors.full_messages.count}件のエラーが発生しました。"
+  
+app/views/groups/edit.html.haml:1:in `_app_views_groups_edit_html_haml__2245611268545220470_70147130354220'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (82.7ms)
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:55:00 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  Rendered groups/edit.html.haml within layouts/application (249.2ms)
+Completed 500 Internal Server Error in 258ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `group' for #<#<Class:0x007f98c5bd8548>:0x007f98cfd95390>
+Did you mean?  @group):
+    1: = form_for @group do |f|
+    2:   - if group.errors.any?
+    3:     .chat-group-form__errors
+    4:       %h2= "#{group.errors.full_messages.count}件のエラーが発生しました。"
+    5:       %ul
+  
+app/views/groups/edit.html.haml:2:in `block in _app_views_groups_edit_html_haml__2245611268545220470_70147149443060'
+app/views/groups/edit.html.haml:1:in `_app_views_groups_edit_html_haml__2245611268545220470_70147149443060'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (84.1ms)
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:55:16 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `users`.id FROM `users` INNER JOIN `group_users` ON `users`.`id` = `group_users`.`user_id` WHERE `group_users`.`group_id` = 1[0m
+  Rendered groups/edit.html.haml within layouts/application (16.3ms)
+  Rendered layouts/_flash.html.haml (1.1ms)
+Completed 200 OK in 39ms (Views: 31.5ms | ActiveRecord: 4.9ms)
+
+
+Started PATCH "/groups/1" for 127.0.0.1 at 2018-04-04 11:55:21 +0900
+Processing by GroupsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tA9SIFLEX2t/kHdS+IxIatJ/1Y0C2IlRCyTfnjuby364usycdA4A9P8LYFUwOrKA26B8WtAD3xHrfbkKnpStKA==", "group"=>{"name"=>"test", "user_ids"=>[""]}, "commit"=>"更新する", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.6ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/groups_controller.rb:24:in `update'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.8ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (93.7ms)
+Started GET "/" for 127.0.0.1 at 2018-04-04 11:55:26 +0900
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  Rendered groups/_group.html.haml (2.5ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered groups/_group.html.haml (0.0ms)
+  Rendered messages/_comment.html.haml (1.5ms)
+  Rendered messages/_comment.html.haml (0.1ms)
+  Rendered groups/index.html.haml within layouts/application (22.1ms)
+  Rendered layouts/_flash.html.haml (1.5ms)
+Completed 200 OK in 56ms (Views: 49.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-04 11:55:27 +0900
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  Rendered groups/_group.html.haml (3.1ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered messages/_comment.html.haml (3.1ms)
+  Rendered messages/_comment.html.haml (0.1ms)
+  Rendered groups/index.html.haml within layouts/application (29.8ms)
+  Rendered layouts/_flash.html.haml (1.8ms)
+Completed 200 OK in 66ms (Views: 60.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-04 11:56:48 +0900
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  Rendered groups/_group.html.haml (2.9ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered groups/_group.html.haml (0.0ms)
+  Rendered messages/_comment.html.haml (2.5ms)
+  Rendered messages/_comment.html.haml (0.0ms)
+  Rendered groups/index.html.haml within layouts/application (26.7ms)
+  Rendered layouts/_flash.html.haml (1.3ms)
+Completed 200 OK in 62ms (Views: 55.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 11:57:04 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  Rendered groups/edit.html.haml within layouts/application (310.8ms)
+Completed 500 Internal Server Error in 320ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007f98c5bd8548>:0x007f98c65474d0>):
+    28:         %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
+    29:       .chat-group-form__field--right
+    30:         / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
+    31:         = f.collection_check_boxes :user_ids, User.all, :id, :name
+    32:         %input.chat-group-form__action-btn{"data-disable-with" => "Save", name: "commit", type: "submit", value: "Save"}/
+  
+app/views/groups/edit.html.haml:31:in `_app_views_groups_edit_html_haml__2245611268545220470_70147072311320'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.8ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (83.4ms)
+Started GET "/groups/new" for 127.0.0.1 at 2018-04-04 12:09:57 +0900
+Processing by GroupsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/new.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered groups/_form.html.haml (6.2ms)
+  Rendered groups/new.html.haml within layouts/application (9.1ms)
+  Rendered layouts/_flash.html.haml (1.2ms)
+Completed 200 OK in 46ms (Views: 32.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/groups/1/edit" for 127.0.0.1 at 2018-04-04 12:11:38 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `users`.id FROM `users` INNER JOIN `group_users` ON `users`.`id` = `group_users`.`user_id` WHERE `group_users`.`group_id` = 1[0m
+  Rendered groups/_form.html.haml (8.3ms)
+  Rendered groups/edit.html.haml within layouts/application (11.4ms)
+  Rendered layouts/_flash.html.haml (1.3ms)
+Completed 200 OK in 35ms (Views: 30.9ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/groups/1" for 127.0.0.1 at 2018-04-04 12:12:00 +0900
+Processing by GroupsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vc5z4SuCaiM68Ph3BoZvSHLvpmKVS21935AVP56CJ1JZe+1dDUg1vLpr73DOMJWiezAPtUeQOz0/yXOrO41BBA==", "group"=>{"name"=>"test", "user_ids"=>["", "1"]}, "commit"=>"更新する", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.5ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/groups_controller.rb:24:in `update'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.9ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (85.0ms)
+Started PATCH "/groups/1" for 127.0.0.1 at 2018-04-04 12:14:56 +0900
+Processing by GroupsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vc5z4SuCaiM68Ph3BoZvSHLvpmKVS21935AVP56CJ1JZe+1dDUg1vLpr73DOMJWiezAPtUeQOz0/yXOrO41BBA==", "group"=>{"name"=>"test", "user_ids"=>["", "1"]}, "commit"=>"更新する", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `group_users` ON `users`.`id` = `group_users`.`user_id` WHERE `group_users`.`group_id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/?notict=%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F
+Completed 302 Found in 36ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/?notict=%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F" for 127.0.0.1 at 2018-04-04 12:14:56 +0900
+Processing by GroupsController#index as HTML
+  Parameters: {"notict"=>"グループを編集しました"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  Rendered groups/_group.html.haml (2.3ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered groups/_group.html.haml (0.0ms)
+  Rendered messages/_comment.html.haml (1.7ms)
+  Rendered messages/_comment.html.haml (0.1ms)
+  Rendered groups/index.html.haml within layouts/application (18.3ms)
+  Rendered layouts/_flash.html.haml (1.9ms)
+Completed 200 OK in 46ms (Views: 41.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/?notict=%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F" for 127.0.0.1 at 2018-04-04 12:15:00 +0900
+Processing by GroupsController#index as HTML
+  Parameters: {"notict"=>"グループを編集しました"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  Rendered groups/_group.html.haml (1.9ms)
+  Rendered groups/_group.html.haml (0.0ms)
+  Rendered groups/_group.html.haml (0.0ms)
+  Rendered messages/_comment.html.haml (2.4ms)
+  Rendered messages/_comment.html.haml (0.0ms)
+  Rendered groups/index.html.haml within layouts/application (17.6ms)
+  Rendered layouts/_flash.html.haml (1.3ms)
+Completed 200 OK in 47ms (Views: 42.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/2/edit" for 127.0.0.1 at 2018-04-04 12:15:08 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/2/edit"):
+  
+actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered collection of /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb [25 times] (5.6ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (115.5ms)
+Started GET "/groups/2/edit" for 127.0.0.1 at 2018-04-04 12:15:36 +0900
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  Rendering groups/edit.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `users`.id FROM `users` INNER JOIN `group_users` ON `users`.`id` = `group_users`.`user_id` WHERE `group_users`.`group_id` = 2[0m
+  Rendered groups/_form.html.haml (8.8ms)
+  Rendered groups/edit.html.haml within layouts/application (11.9ms)
+  Rendered layouts/_flash.html.haml (1.5ms)
+Completed 200 OK in 37ms (Views: 32.6ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/groups/2" for 127.0.0.1 at 2018-04-04 12:15:55 +0900
+Processing by GroupsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HfEz7tCEE2sqw8HZ8DRFs0zPim3x+wERG6+LE0n8bNERRK1S9k5M9KpY1t44gr9ZRRAjuiMgV1H79u2H7PMKhw==", "group"=>{"name"=>"テスト編集済", "user_ids"=>["", "1", "2"]}, "commit"=>"更新する", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1, 2)[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `group_users` ON `users`.`id` = `group_users`.`user_id` WHERE `group_users`.`group_id` = 2[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `groups` SET `name` = 'テスト編集済', `updated_at` = '2018-04-04 03:15:55' WHERE `groups`.`id` = 2[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/?notict=%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F
+Completed 302 Found in 11ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/?notict=%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F" for 127.0.0.1 at 2018-04-04 12:15:55 +0900
+Processing by GroupsController#index as HTML
+  Parameters: {"notict"=>"グループを編集しました"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  Rendered groups/_group.html.haml (1.6ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered groups/_group.html.haml (0.0ms)
+  Rendered messages/_comment.html.haml (10.5ms)
+  Rendered messages/_comment.html.haml (0.0ms)
+  Rendered groups/index.html.haml within layouts/application (26.3ms)
+  Rendered layouts/_flash.html.haml (1.5ms)
+Completed 200 OK in 56ms (Views: 52.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/?notict=%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F" for 127.0.0.1 at 2018-04-04 12:20:57 +0900
+Processing by GroupsController#index as HTML
+  Parameters: {"notict"=>"グループを編集しました"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering groups/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  Rendered groups/_group.html.haml (2.1ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered groups/_group.html.haml (0.1ms)
+  Rendered messages/_comment.html.haml (1.9ms)
+  Rendered messages/_comment.html.haml (0.0ms)
+  Rendered groups/index.html.haml within layouts/application (18.7ms)
+  Rendered layouts/_flash.html.haml (1.4ms)
+Completed 200 OK in 44ms (Views: 40.2ms | ActiveRecord: 0.7ms)
+
+

@@ -7,7 +7,7 @@
         %i.fa.fa-cog
       = link_to new_group_path, class:"user-section__editing" do
         %i.fa.fa-edit
-    - @groups.each do |group|
+    - current_user.groups.each do |group|
       = render partial: "group", locals: { group: group}
 
   .main-content
