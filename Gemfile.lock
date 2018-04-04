@@ -107,6 +107,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
@@ -218,7 +219,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  carrierwave (~> 1.1)
+  carrierwave
   coffee-rails (~> 4.2)
   devise
   erb2haml
@@ -227,6 +228,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  mini_magick
   mysql2 (>= 0.3.18, < 0.5)
   pry-byebug
   pry-doc
