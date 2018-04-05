@@ -1,0 +1,11 @@
+.comment
+  %h4.comment__user-name
+    = message.user.name
+  %ul.comment__date.clearfix
+    %li
+      = message.created_at
+  - if message.content.present?
+    %p.comment__text
+      = message.content
+  = image_tag message.image.url if message.image.present?
+
