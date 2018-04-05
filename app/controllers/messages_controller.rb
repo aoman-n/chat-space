@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :group_set
 
   def index
-    @messages = @group.messages.includes(:users)
+    @messages = @group.messages.includes(:user)
     @message = Message.new
   end
 
@@ -18,6 +18,7 @@ class MessagesController < ApplicationController
   end
 
   private
+
   def message_params
     params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
   end
@@ -27,4 +28,3 @@ class MessagesController < ApplicationController
   end
 
 end
-
