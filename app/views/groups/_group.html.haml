@@ -1,1 +1,8 @@
-= link_to 'test', "/groups/#{group.id}/messages", class: 'group-contents'
+= link_to "/groups/#{group.id}/messages" do
+  .group
+    .group-contets
+      .group-contents__title
+        = group.name
+      .group-contents__comment
+        まだメッセージはありません
+
