@@ -10,16 +10,16 @@
     - current_user.groups.each do |group|
       = render partial: "group", locals: { group: group}
 
+
   .main-content
     .view-screen
       .chat-head.clearfix
         .left-contents
-          %h3.left-contents__title サンプル
-          %p.left-contents__member Member :seo
-        %a.chat-head__edit{href:""} Edit
+        /   %h3.left-contents__title サンプル
+        /   %p.left-contents__member Member :seo
+        / %a.chat-head__edit{href:""} Edit
       .chat-main
-        = render partial: "messages/comment"
-        = render partial: "messages/comment"
+
     .footer.clearfix
       .footer-body
         %form
