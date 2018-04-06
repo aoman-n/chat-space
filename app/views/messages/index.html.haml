@@ -15,11 +15,13 @@
       .chat-head.clearfix
         .left-contents
           %h3.left-contents__title サンプル
-          %p.left-contents__member Member :seo
+          %p.left-contents__member
+            Member :
+            = render @users
+            / - @group.users.each do |user|
+            /   = user.name
         %a.chat-head__edit{href:""} Edit
       .chat-main
-        / - @messages.each do |message|
-        /   = render partial: "messages/comment", locals: {message: message}
         = render @messages
     .footer.clearfix
       .footer-body
