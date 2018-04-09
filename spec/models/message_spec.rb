@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Message, type: :model do
   describe '#create' do
+
     context 'can save' do
       it "is valid with a content" do
         expect(build(:message, image: nil)).to be_valid
@@ -14,9 +15,11 @@ RSpec.describe Message, type: :model do
       it "is valid with a image and content" do
         expect(build(:message)).to be_valid
       end
+
     end
 
     context 'can not save' do
+
       it "is invalid without a content, image" do
         message = build(:message, content: nil, image: nil)
         message.valid?
@@ -34,6 +37,7 @@ RSpec.describe Message, type: :model do
         message.valid?
         expect(message.errors[:user]).to include("を入力してください")
       end
+
     end
   end
 end
