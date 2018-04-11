@@ -14,7 +14,8 @@
     .view-screen
       .chat-head.clearfix
         .left-contents
-          %h3.left-contents__title サンプル
+          %h3.left-contents__title
+            = @group.name
           %p.left-contents__member
             Member :
             = render @users
