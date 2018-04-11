@@ -12717,3 +12717,71 @@ Redirected to http://localhost:3000/groups/2/messages
 Completed 200 OK in 47553ms (ActiveRecord: 3.1ms)
 
 
+Started GET "/groups/2/messages" for 127.0.0.1 at 2018-04-11 20:36:36 +0900
+  
+SyntaxError (/Users/hiroaki/projects/chat-space/app/controllers/messages_controller.rb:17: syntax error, unexpected ',', expecting keyword_end
+      , notice: 'メッセージが送信されました'
+       ^):
+  
+app/controllers/messages_controller.rb:17: syntax error, unexpected ',', expecting keyword_end
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.3ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (92.8ms)
+Started GET "/groups/2/messages" for 127.0.0.1 at 2018-04-11 20:36:45 +0900
+  
+SyntaxError (/Users/hiroaki/projects/chat-space/app/controllers/messages_controller.rb:17: syntax error, unexpected ':', expecting keyword_end
+      notice: 'メッセージが送信されました'
+             ^):
+  
+app/controllers/messages_controller.rb:17: syntax error, unexpected ':', expecting keyword_end
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.2ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (86.5ms)
+Started GET "/groups/2/messages" for 127.0.0.1 at 2018-04-11 20:37:10 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  Rendering messages/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 2 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (4.5ms)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 3 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (1.5ms)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 4 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (1.6ms)
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 5 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `group_users` ON `users`.`id` = `group_users`.`user_id` WHERE `group_users`.`group_id` = 2[0m
+  Rendered collection of users/_user.html.haml [2 times] (1.2ms)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`group_id` = 2[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+  Rendered collection of messages/_message.html.haml [46 times] (5.7ms)
+  Rendered messages/index.html.haml within layouts/application (44.7ms)
+  Rendered layouts/_flash.html.haml (1.4ms)
+Completed 200 OK in 122ms (Views: 74.0ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-11 20:37:21 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"goIp0KaoOQLdXNHw8uQwEVAzxuEf6YLgpwE2aZZ6KtXrIajP6PXDycPYjSLMxNz6vfHFmR7gJyr2vmoGz8G1WQ==", "message"=>{"content"=>"どうも"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('どうも', 2, 2, '2018-04-11 11:37:21', '2018-04-11 11:37:21')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+No template found for MessagesController#create, rendering head :no_content
+Completed 204 No Content in 139ms (ActiveRecord: 1.7ms)
+
+
