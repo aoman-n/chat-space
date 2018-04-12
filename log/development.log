@@ -31851,3 +31851,331 @@ Processing by MessagesController#index as HTML
 Completed 200 OK in 59ms (Views: 50.3ms | ActiveRecord: 2.6ms)
 
 
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:26:55 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"unXM8vWpCzwz7g4PzoYFqTBkpw/j5lYzzNeZ03EIetHk2LzEXGl7RPSh12jRiHQcd6QtJ6j9cWfFosb/+q77yg==", "message"=>{"content"=>"oh"}, "commit"=>"SEND", "group_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('oh', 2, 2, '2018-04-12 10:26:55', '2018-04-12 10:26:55')[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/groups/2/messages
+Completed 302 Found in 11ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:26:55 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  Rendering messages/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 2 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (4.4ms)
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 3 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (1.7ms)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 4 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (1.5ms)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 5 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (1.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `group_users` ON `users`.`id` = `group_users`.`user_id` WHERE `group_users`.`group_id` = 2[0m
+  Rendered collection of users/_user.html.haml [2 times] (1.4ms)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`group_id` = 2[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+  Rendered collection of messages/_message.html.haml [1 times] (2.2ms)
+  Rendered messages/index.html.haml within layouts/application (31.5ms)
+  Rendered layouts/_flash.html.haml (1.4ms)
+Completed 200 OK in 61ms (Views: 53.8ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:26:58 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"test"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('test', 2, 2, '2018-04-12 10:26:58', '2018-04-12 10:26:58')[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (0.9ms)
+Completed 200 OK in 22ms (Views: 11.8ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:27:32 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"おはよう"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('おはよう', 2, 2, '2018-04-12 10:27:32', '2018-04-12 10:27:32')[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (0.5ms)
+Completed 200 OK in 19ms (Views: 9.8ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:27:36 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"こんにちは"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('こんにちは', 2, 2, '2018-04-12 10:27:36', '2018-04-12 10:27:36')[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (0.6ms)
+Completed 200 OK in 20ms (Views: 10.5ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:27:39 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"こんばんは"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('こんばんは', 2, 2, '2018-04-12 10:27:39', '2018-04-12 10:27:39')[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (0.6ms)
+Completed 200 OK in 19ms (Views: 9.7ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:27:46 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"おやすみなさい"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('おやすみなさい', 2, 2, '2018-04-12 10:27:46', '2018-04-12 10:27:46')[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (0.5ms)
+Completed 200 OK in 19ms (Views: 9.6ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:27:59 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fefa36117d8 @tempfile=#<Tempfile:/var/folders/ty/cg2j2fds3xn_11qx3x87lt_w0000gn/T/RackMultipart20180412-5619-nycalz.jpg>, @original_filename="evi.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"message[image]\"; filename=\"evi.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `image`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('', 'evi.jpg', 2, 2, '2018-04-12 10:27:59', '2018-04-12 10:27:59')[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (1.1ms)
+Completed 200 OK in 96ms (Views: 10.6ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:28:45 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"おはよう"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('おはよう', 2, 2, '2018-04-12 10:28:45', '2018-04-12 10:28:45')[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (0.7ms)
+Completed 200 OK in 24ms (Views: 10.5ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:28:51 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"こんにちは"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('こんにちは', 2, 2, '2018-04-12 10:28:51', '2018-04-12 10:28:51')[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (1.2ms)
+Completed 200 OK in 26ms (Views: 13.0ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:30:07 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"こんばんは"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('こんばんは', 2, 2, '2018-04-12 10:30:07', '2018-04-12 10:30:07')[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (1.0ms)
+Completed 200 OK in 25ms (Views: 12.3ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:30:10 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"test"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('test', 2, 2, '2018-04-12 10:30:10', '2018-04-12 10:30:10')[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (0.8ms)
+Completed 200 OK in 25ms (Views: 12.8ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:30:14 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"doumo"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('doumo', 2, 2, '2018-04-12 10:30:14', '2018-04-12 10:30:14')[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (0.8ms)
+Completed 200 OK in 27ms (Views: 13.7ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:35:31 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fefa5417c00 @tempfile=#<Tempfile:/var/folders/ty/cg2j2fds3xn_11qx3x87lt_w0000gn/T/RackMultipart20180412-5619-12bxruo.jpg>, @original_filename="evi.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"message[image]\"; filename=\"evi.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `image`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('', 'evi.jpg', 2, 2, '2018-04-12 10:35:31', '2018-04-12 10:35:31')[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (1.6ms)
+Completed 200 OK in 115ms (Views: 11.4ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:35:34 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>""}, "group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering messages/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 2 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (5.5ms)
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 3 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (1.9ms)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 4 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (1.8ms)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 5 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (1.9ms)
+  Rendered messages/index.html.haml within layouts/application (82.8ms)
+Completed 500 Internal Server Error in 109ms (ActiveRecord: 2.8ms)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    18:             = @group.name
+    19:           %p.left-contents__member
+    20:             Member :
+    21:             = render @users
+    22:             / - @group.users.each do |user|
+    23:             /   = user.name
+    24:         %a.chat-head__edit{href:""} Edit
+  
+app/views/messages/index.html.haml:21:in `_app_views_messages_index_html_haml__150180146233508632_70333617975780'
+app/controllers/messages_controller.rb:22:in `create'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.9ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (56.4ms)
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:35:59 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>""}, "group_id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering messages/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 2[0m
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 2 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (5.9ms)
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 3 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (2.3ms)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 4 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (1.9ms)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 5 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered messages/_group.html.haml (1.9ms)
+  Rendered messages/index.html.haml within layouts/application (89.6ms)
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 4.0ms)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    18:             = @group.name
+    19:           %p.left-contents__member
+    20:             Member :
+    21:             = render @users
+    22:             / - @group.users.each do |user|
+    23:             /   = user.name
+    24:         %a.chat-head__edit{href:""} Edit
+  
+app/views/messages/index.html.haml:21:in `_app_views_messages_index_html_haml__150180146233508632_70333665217100'
+app/controllers/messages_controller.rb:22:in `create'
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendering /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/hiroaki/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (61.3ms)
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:36:03 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"こんにちは"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('こんにちは', 2, 2, '2018-04-12 10:36:03', '2018-04-12 10:36:03')[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (0.8ms)
+Completed 200 OK in 24ms (Views: 11.4ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:36:05 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"test"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('test', 2, 2, '2018-04-12 10:36:05', '2018-04-12 10:36:05')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (0.8ms)
+Completed 200 OK in 25ms (Views: 12.6ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/groups/2/messages" for 127.0.0.1 at 2018-04-12 19:36:08 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7OHf5tqJXNwj/xQX6Qnm0nasW4OJr0rRyCA9ovavE/6FQl75lNSmFz17SMXXKQo5m25Y+4im7xuZn2HNrxSMcg==", "message"=>{"content"=>"こんにちは"}, "group_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('こんにちは', 2, 2, '2018-04-12 10:36:08', '2018-04-12 10:36:08')[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (0.7ms)
+Completed 200 OK in 24ms (Views: 13.1ms | ActiveRecord: 3.0ms)
+
+

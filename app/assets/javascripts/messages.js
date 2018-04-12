@@ -1,10 +1,5 @@
 $(function(){
   function buildHTML(comment) {
-    // if(comment.image === null) {
-    //   var image = ""
-    // }else {
-    //   var image = `<img src= ${comment.image} >`
-    // }
     var image = ((comment.image) ? `<img src= ${comment.image} >`: "");
     var html =`<div class='comment'>
                   <h4 class='comment__user-name'>
