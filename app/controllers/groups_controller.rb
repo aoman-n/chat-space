@@ -18,6 +18,14 @@ class GroupsController < ApplicationController
     end
   end
 
+  def edit
+    @users = User.where.not(id: current_user.id).where('name LIKE(?)', "%#{params[:keyword]}%") if params[:keyword].present?
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def update
       if @group.update(group_params)
         redirect_to action: :index, notict: 'グループを編集しました'
