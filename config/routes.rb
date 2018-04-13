@@ -6,5 +6,4 @@ Rails.application.routes.draw do
   resources :groups, only: [:new, :create, :edit, :update] do
     resources :messages, only: [:index, :create]
   end
-  get '/groups/1/edit' => 'groups#edit'
 end
