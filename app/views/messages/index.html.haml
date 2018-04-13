@@ -19,9 +19,9 @@
           %p.left-contents__member
             Member :
             = render @users
-            / - @group.users.each do |user|
-            /   = user.name
-        %a.chat-head__edit{href:""} Edit
+
+        = link_to edit_group_path(@group), class:"chat-head__edit" do
+          Edit
       .chat-main
         = render @messages
     .footer.clearfix
