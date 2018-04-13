@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%") if params[:keyword].present?
+    @users = User.where.not(id: current_user.id).where('name LIKE(?)', "%#{params[:keyword]}%") if params[:keyword].present?
     respond_to do |format|
       format.html
       format.json
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
-    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%") if params[:keyword].present?
+    @users = User.where.not(id: current_user.id).where('name LIKE(?)', "%#{params[:keyword]}%") if params[:keyword].present?
     respond_to do |format|
       format.html
       format.json
