@@ -15,7 +15,7 @@ $(function(){
                   </p>
                     ${image}
                 </div>`
-    return html;
+    $('.chat-main').append(html);
   }
 
   $('#new_message').on('submit',function(e){
@@ -32,7 +32,6 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.chat-main').append(html)
       $('.message').val('');
       $('.upload-icon').val('');
       $('.sent-bottun').prop('disabled', false);
@@ -43,4 +42,34 @@ $(function(){
       $('.sent-bottun').prop('disabled', false);
     })
   });
+
+  $(function(){
+    setInterval(update, 5000);
+  });
+
+  function update(){
+    var comment_id = $('.comment:last').data('id');
+    console.log(comment_id);
+    var href = window.location.href;
+    $.ajax({
+      url: href,
+      type: "GET",
+      data: {
+        message: { id: comment_id}
+      },
+      dataType: 'json',
+    })
+
+    .always(function(message){
+      console.log(message.length);
+      if (message.length !== 0) {
+        message.forEach(function(message){
+          buildHTML(message);
+        });
+        $('.chat-main').animate({scrollTop: $('.chat-main')[0].scrollHeight}, 'fast');
+      } else {
+        console.log('新規メッセージなし')
+      }
+    })
+  }
 });
