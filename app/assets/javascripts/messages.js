@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(comment) {
     var image = ((comment.image) ? `<img src= ${comment.image} >`: "");
-    var html =`<div class='comment'>
+    var html =`<div class='comment' data-id= ${comment.id}>
                   <h4 class='comment__user-name'>
                     ${comment.user_name}
                   </h4>
