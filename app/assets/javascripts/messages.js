@@ -43,33 +43,29 @@ $(function(){
     })
   });
 
-  $(function(){
-    setInterval(update, 5000);
-  });
-
-  function update(){
-    var comment_id = $('.comment:last').data('id');
-    console.log(comment_id);
-    var href = window.location.href;
-    $.ajax({
-      url: href,
-      type: "GET",
-      data: {
-        message: { id: comment_id}
-      },
-      dataType: 'json',
-    })
-
-    .always(function(message){
-      console.log(message.length);
-      if (message.length !== 0) {
-        message.forEach(function(message){
-          buildHTML(message);
-        });
-        $('.chat-main').animate({scrollTop: $('.chat-main')[0].scrollHeight}, 'fast');
-      } else {
-        console.log('新規メッセージなし')
-      }
-    })
-  }
+  var interval = setInterval(function(){
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      var comment_id = $('.comment:last').data('id');
+      var href = window.location.href;
+      $.ajax({
+        url: href,
+        type: "GET",
+        data: {
+          message: { id: comment_id}
+        },
+        dataType: 'json',
+      })
+      .always(function(message){
+        if (message.length !== 0) {
+          message.forEach(function(message){
+            buildHTML(message);
+          });
+          $('.chat-main').animate({scrollTop: $('.chat-main')[0].scrollHeight}, 'fast');
+        } else {
+          console.log('新規メッセージなし')
+        }
+      })
+    } else {
+      clearInterval(interval);
+  }},2000);
 });
