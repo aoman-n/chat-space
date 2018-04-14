@@ -1,5 +1,5 @@
 $(function(){
-  function buildHTML(comment) {
+  function appendHTML(comment) {
     var image = ((comment.image) ? `<img src= ${comment.image} >`: "");
     var html =`<div class='comment' data-id= ${comment.id}>
                   <h4 class='comment__user-name'>
@@ -31,7 +31,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      var html = buildHTML(data);
+      appendHTML(data);
       $('.message').val('');
       $('.upload-icon').val('');
       $('.sent-bottun').prop('disabled', false);
@@ -45,27 +45,25 @@ $(function(){
 
   var interval = setInterval(function(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
-      var comment_id = $('.comment:last').data('id');
+      var commentId = $('.comment:last').data('id');
       var href = window.location.href;
       $.ajax({
         url: href,
         type: "GET",
         data: {
-          message: { id: comment_id}
+          message: { id: commentId}
         },
         dataType: 'json',
       })
-      .always(function(message){
-        if (message.length !== 0) {
-          message.forEach(function(message){
-            buildHTML(message);
+      .always(function(messages){
+        if (messages.length !== 0) {
+          messages.forEach(function(message){
+            appendHTML(message);
           });
           $('.chat-main').animate({scrollTop: $('.chat-main')[0].scrollHeight}, 'fast');
-        } else {
-          console.log('新規メッセージなし')
         }
       })
     } else {
       clearInterval(interval);
-  }},2000);
+  }},5000);
 });
