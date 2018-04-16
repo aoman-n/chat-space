@@ -44,10 +44,10 @@ $(function(){
   });
 
   var interval = setInterval(function(){
-    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+    if (location.href.match(/\/groups\/\d+\/messages/)) {
       var commentId = $('.comment:last').data('id');
       $.ajax({
-        url: window.location.href,
+        url: location.href,
         type: "GET",
         data: {
           message: { id: commentId}
