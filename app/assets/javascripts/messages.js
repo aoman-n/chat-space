@@ -46,9 +46,8 @@ $(function(){
   var interval = setInterval(function(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
       var commentId = $('.comment:last').data('id');
-      var href = window.location.href;
       $.ajax({
-        url: href,
+        url: window.location.href,
         type: "GET",
         data: {
           message: { id: commentId}

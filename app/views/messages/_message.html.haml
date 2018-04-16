@@ -1,9 +1,9 @@
-.comment{"data-id" => "#{message.id}"}
+.comment{"data-id": "#{message.id}"}
   %h4.comment__user-name
     = message.user.name
   %ul.comment__date.clearfix
     %li
-      = message.created_at
+      = message.create_date
   - if message.content.present?
     %p.comment__text
       = message.content
