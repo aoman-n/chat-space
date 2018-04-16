@@ -50,7 +50,7 @@ $(function(){
         url: location.href,
         type: "GET",
         data: {
-          message: { id: commentId}
+          id: commentId
         },
         dataType: 'json',
       })
