@@ -1,0 +1,8 @@
+json.array! @update_messages do |message|
+  json.id message.id
+  json.user_name message.user.name
+  json.content message.content
+  json.image message.image.url
+  json.created_at message.create_date
+end
+

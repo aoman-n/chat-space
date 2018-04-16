@@ -1,7 +1,7 @@
 $(function(){
-  function buildHTML(comment) {
+  function appendHTML(comment) {
     var image = ((comment.image) ? `<img src= ${comment.image} >`: "");
-    var html =`<div class='comment'>
+    var html =`<div class='comment' data-id= ${comment.id}>
                   <h4 class='comment__user-name'>
                     ${comment.user_name}
                   </h4>
@@ -15,7 +15,7 @@ $(function(){
                   </p>
                     ${image}
                 </div>`
-    return html;
+    $('.chat-main').append(html);
   }
 
   $('#new_message').on('submit',function(e){
@@ -31,8 +31,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      var html = buildHTML(data);
-      $('.chat-main').append(html)
+      appendHTML(data);
       $('.message').val('');
       $('.upload-icon').val('');
       $('.sent-bottun').prop('disabled', false);
@@ -43,4 +42,27 @@ $(function(){
       $('.sent-bottun').prop('disabled', false);
     })
   });
+
+  var interval = setInterval(function(){
+    if (location.href.match(/\/groups\/\d+\/messages/)) {
+      var commentId = $('.comment:last').data('id');
+      $.ajax({
+        url: location.href,
+        type: "GET",
+        data: {
+          id: commentId
+        },
+        dataType: 'json',
+      })
+      .always(function(messages){
+        if (messages.length !== 0) {
+          messages.forEach(function(message){
+            appendHTML(message);
+          });
+          $('.chat-main').animate({scrollTop: $('.chat-main')[0].scrollHeight}, 'fast');
+        }
+      })
+    } else {
+      clearInterval(interval);
+  }},5000);
 });
