@@ -19,7 +19,8 @@ class MessagesController < ApplicationController
         format.json
       end
     else
-      render action: :index
+      redirect_to group_messages_path(@group)
+      flash.now[:alert] = 'error'
     end
   end
 
