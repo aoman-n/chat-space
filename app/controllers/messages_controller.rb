@@ -20,7 +20,6 @@ class MessagesController < ApplicationController
       end
     else
       redirect_to group_messages_path(@group)
-      flash.now[:alert] = 'error'
     end
   end
 

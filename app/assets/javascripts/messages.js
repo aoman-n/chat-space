@@ -31,11 +31,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      if(done.get(content) !== 0){
       appendHTML(data);
-    }else{
-      alert('コメントを入力してください');
-    }
       $('.message').val('');
       $('.upload-icon').val('');
       $('.sent-bottun').prop('disabled', false);
