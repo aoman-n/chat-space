@@ -2,7 +2,7 @@
 lock '3.10.2'
 
 set :application, 'chat-space'
-set :repo_url,  'git@github.com:<laster18>/<chat-space>.git'
+set :repo_url,  'git@github.com:laster18/chat-space.git'
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
