@@ -1,7 +1,16 @@
 *.image
 *.log
+*.jpg
 
-tmp/
-log/
+tmp/*
+log/*
 images/
 image/
+
+config/secrets.yml
+
+
+
+
+log/development.log
+
