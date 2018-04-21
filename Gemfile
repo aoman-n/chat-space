@@ -69,7 +69,7 @@ gem 'pry-byebug'
 gem 'pry-doc'
 gem 'rails-i18n'
 gem 'carrierwave'
-gem 'fog', '1.28.0'
+gem 'fog'
 gem 'mini_magick'
 
 group :production do
